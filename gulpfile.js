@@ -4,9 +4,9 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 // const cleanCSS = require('gulp-clean-css');
 
-const uglify = require('gulp-uglify').default;
+// const uglify = require('gulp-uglify').default;
 const concat = require('gulp-concat');
-const jquery = require('jquery');
+// const gulp-jquery = require('jquery');
 
 
 
@@ -29,16 +29,18 @@ gulp.task('copy-bootstrap', function () {
 });
 
 gulp.task('copy-font-awesome', function () {
-    gulp.src('node_modules/@font-awesome/fontawesome-free/webfonts')
+    gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts')
 });
+
+
 gulp.task('concatenation', function () {
     return gulp
         .src([
                 './node_modules/bootstrap/dist/css/bootstrap.css',
-                './node_modules/@fontawesome/fontawesome-free/css/all.css'
+                './node_modules/@fortawesome/fontawesome-free/css/all.css'
             ]
         )
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(concat('vendor.css'))
         .pipe(gulp.dest('build/css'));
 });
